@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahmtstia - Full Stack Developer</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body
+    class="font-[Poppins] text-gray-900 dark:text-gray-100 bg-sky-200 dark:bg-gray-900 transition-colors duration-300">
+    <!-- Animated Background Elements -->
+    <div class="fixed inset-0 grid-pattern opacity-50"></div>
+
+    <!-- Navigation -->
+    <nav
+        class="fixed w-full bg-sky-50 dark:bg-gray-800/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700 shadow-lg dark:shadow-xl dark:shadow-gray-900/30">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#"
+                    class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+                    <span class="text-purple-500">{"</span>ahmtstia<span class="text-cyan-400">"}</span>
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2">
+                    <i class="bx bx-menu text-2xl"></i>
+                </button>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <div class="flex items-center gap-4">
+                        <button id="theme-toggle"
+                            class="p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors">
+                            <i class="bx bx-sun text-xl text-cyan-400 dark:hidden"></i>
+                            <i class="bx bx-moon text-xl text-purple-500 hidden dark:block"></i>
+                        </button>
+                    </div>
+                    <a href="#home" class="hover:text-cyan-400 transition-colors flex items-center">
+                        <i class="bx bx-home-alt-2 mr-2"></i>Home
+                    </a>
+                    <a href="#projects" class="hover:text-cyan-400 transition-colors flex items-center">
+                        <i class="bx bx-folder-open mr-2"></i>Projects
+                    </a>
+                    <a href="#skills" class="hover:text-cyan-400 transition-colors flex items-center">
+                        <i class="bx bx-code-alt mr-2"></i>Skills
+                    </a>
+                    <a href="#contact" class="hover:text-cyan-400 transition-colors flex items-center">
+                        <i class="bx bx-envelope mr-2"></i>Contact
+                    </a>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="md:hidden absolute top-full left-0 w-full bg-sky-50 dark:bg-gray-800/80 backdrop-blur-md hidden">
+                <div class="container mx-auto px-6 py-4">
+                    <div class="flex flex-col space-y-4">
+                        <a href="#home" class="hover:text-cyan-400">Home</a>
+                        <a href="#projects" class="hover:text-cyan-400">Project</a>
+                        <a href="#skills" class="hover:text-cyan-400">My Skill</a>
+                        <a href="#contact" class="hover:text-cyan-400">Contact</a>
+                        <button id="theme-toggle" class="...">...</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen pt-14 px-6 relative">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8 relative z-10 pt-8 md:ml-8">
+                    <!-- Tag -->
+                    <div class="space-y-4">
+                        <div class="tag">
+                            <span class="bg-gray-800 text-cyan-400 px-4 py-2 rounded-full text-sm">🚀 Available for
+                                Work</span>
+                            <span class="bg-gray-800 text-cyan-400 px-4 py-2 rounded-full text-sm">📩 Get in Touch &
+                                Start a Project</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
+                            Turning Ideas Into<br />
+                            <span
+                                class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Digital
+                                Reality</span>
+                        </h1>
+                        <h2 class="text-5xl md:text-5xl font-bold leading-tight">
+                            <span
+                                class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">I'am
+                                Ahmat Setiadi</span>
+                        </h2>
+                        <p class="text-base sm:text-xl text-gray-600 dark:text-gray-400">
+                            "As a Full Stack Web Developer & Android Developer,I design and
+                            develop digital experiences that are not only visually
+                            beautiful, but also fast, responsive, and intuitive for users."
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button
+                            class="w-full sm:w-auto bg-gradient-to-r from-cyan-500 to-purple-600 px-8 py-4 rounded-full hover:scale-105 transition-transform"
+                            onclick="window.open('https://github.com/Ahmatstia?tab=repositories', '_blank');">
+                            <i class="bx bx-rocket mr-2"></i>View Projects
+                        </button>
+                        <button id="download-cv"
+                            class="w-full sm:w-auto border border-cyan-400 text-cyan-400 px-8 py-4 rounded-full hover:bg-cyan-400/10 transition-colors">
+                            Download CV
+                        </button>
+                    </div>
+                    <div class="flex flex-wrap gap-5 animate-fade-in-up">
+                        <!-- Node.js Badge -->
+                        <div
+                            class="group relative p-px rounded-full bg-gradient-to-r from-green-400 to-emerald-500 hover:shadow-lg hover:shadow-green-400/20 transition-all">
+                            <div
+                                class="flex items-center space-x-2 bg-gray-900 px-4 py-2 rounded-full backdrop-blur-sm">
+                                <img src="https://cdn.simpleicons.org/nodedotjs/339933" class="h-6 w-6 object-contain"
+                                    alt="Node.js" />
+                                <span
+                                    class="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent font-medium">
+                                    Node.js
+                                </span>
+                            </div>
+                            <div
+                                class="absolute inset-0 -z-10 bg-gradient-to-r from-green-400/20 to-emerald-500/20 blur-md group-hover:blur-lg transition-all">
+                            </div>
+                        </div>
+
+                        <!-- PHP -->
+                        <div
+                            class="group relative p-px rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 hover:shadow-lg hover:shadow-purple-400/20 transition-all">
+                            <div
+                                class="flex items-center space-x-2 bg-gray-900 px-4 py-2 rounded-full backdrop-blur-sm">
+                                <img src="https://cdn.simpleicons.org/php/777BB4" class="h-6 w-6 object-contain"
+                                    alt="PHP" />
+                                <span
+                                    class="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent font-medium">
+                                    PHP
+                                </span>
+                            </div>
+                            <div
+                                class="absolute inset-0 -z-10 bg-gradient-to-r from-purple-500/20 to-indigo-500/20 blur-md group-hover:blur-lg transition-all">
+                            </div>
+                        </div>
+
+                        <!-- JavaScript -->
+                        <div
+                            class="group relative p-px rounded-full bg-gradient-to-r from-yellow-400 to-amber-500 hover:shadow-lg hover:shadow-yellow-400/20 transition-all">
+                            <div
+                                class="flex items-center space-x-2 bg-gray-900 px-4 py-2 rounded-full backdrop-blur-sm">
+                                <img src="https://cdn.simpleicons.org/javascript/F7DF1E" class="h-6 w-6 object-contain"
+                                    alt="JavaScript" />
+                                <span
+                                    class="bg-gradient-to-r from-yellow-300 to-amber-400 bg-clip-text text-transparent font-medium">
+                                    JavaScript
+                                </span>
+                            </div>
+                            <div
+                                class="absolute inset-0 -z-10 bg-gradient-to-r from-yellow-400/20 to-amber-500/20 blur-md group-hover:blur-lg transition-all">
+                            </div>
+                        </div>
+
+                        <!-- React -->
+                        <div
+                            class="group relative p-px rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:shadow-lg hover:shadow-cyan-400/20 transition-all">
+                            <div
+                                class="flex items-center space-x-2 bg-gray-900 px-4 py-2 rounded-full backdrop-blur-sm">
+                                <img src="https://cdn.simpleicons.org/react/61DAFB" class="h-6 w-6 object-contain"
+                                    alt="React" />
+                                <span
+                                    class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-medium">
+                                    React
+                                </span>
+                            </div>
+                            <div
+                                class="absolute inset-0 -z-10 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 blur-md group-hover:blur-lg transition-all">
+                            </div>
+                        </div>
+
+                        <!-- Tailwind CSS -->
+                        <div
+                            class="group relative p-px rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:shadow-lg hover:shadow-cyan-500/20 transition-all">
+                            <div
+                                class="flex items-center space-x-2 bg-gray-900 px-4 py-2 rounded-full backdrop-blur-sm">
+                                <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" class="h-6 w-6 object-contain"
+                                    alt="Tailwind CSS" />
+                                <span
+                                    class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-medium">
+                                    Tailwind
+                                </span>
+                            </div>
+                            <div
+                                class="absolute inset-0 -z-10 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 blur-md group-hover:blur-lg transition-all">
+                            </div>
+                        </div>
+
+                        <!-- Bootstrap -->
+                        <div
+                            class="group relative p-px rounded-full bg-gradient-to-r from-purple-600 to-violet-500 hover:shadow-lg hover:shadow-purple-600/20 transition-all">
+                            <div
+                                class="flex items-center space-x-2 bg-gray-900 px-4 py-2 rounded-full backdrop-blur-sm">
+                                <img src="https://cdn.simpleicons.org/bootstrap/7952B3" class="h-6 w-6 object-contain"
+                                    alt="Bootstrap" />
+                                <span
+                                    class="bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent font-medium">
+                                    Bootstrap
+                                </span>
+                            </div>
+                            <div
+                                class="absolute inset-0 -z-10 bg-gradient-to-r from-purple-600/20 to-violet-500/20 blur-md group-hover:blur-lg transition-all">
+                            </div>
+                        </div>
+
+                        <!-- Laravel -->
+                        <div
+                            class="group relative p-px rounded-full bg-gradient-to-r from-red-500 to-rose-500 hover:shadow-lg hover:shadow-red-500/20 transition-all">
+                            <div
+                                class="flex items-center space-x-2 bg-gray-900 px-4 py-2 rounded-full backdrop-blur-sm">
+                                <img src="https://cdn.simpleicons.org/laravel/FF2D20" class="h-6 w-6 object-contain"
+                                    alt="Laravel" />
+                                <span
+                                    class="bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent font-medium">
+                                    Laravel
+                                </span>
+                            </div>
+                            <div
+                                class="absolute inset-0 -z-10 bg-gradient-to-r from-red-500/20 to-rose-500/20 blur-md group-hover:blur-lg transition-all">
+                            </div>
+                        </div>
+                        <!-- MySQL -->
+                        <div
+                            class="group relative p-px rounded-full bg-gradient-to-r from-blue-500 to-sky-500 hover:shadow-lg hover:shadow-blue-500/20 transition-all">
+                            <div
+                                class="flex items-center space-x-2 bg-gray-900 px-4 py-2 rounded-full backdrop-blur-sm">
+                                <img src="https://cdn.simpleicons.org/mysql/4479A1" class="h-6 w-6 object-contain"
+                                    alt="MySQL" />
+                                <span
+                                    class="bg-gradient-to-r from-blue-400 to-sky-400 bg-clip-text text-transparent font-medium">
+                                    MySQL
+                                </span>
+                            </div>
+                            <div
+                                class="absolute inset-0 -z-10 bg-gradient-to-r from-blue-500/20 to-sky-500/20 blur-md group-hover:blur-lg transition-all">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Image with Effects -->
+                <div class="relative floating w-[75%] h-[75%] justify-self-end pb-80 mr-8">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 blur-2xl opacity-30 rounded-full">
+                    </div>
+                    <div
+                        class="relative bg-gray-900 rounded-full border-4 border-cyan-400/30 overflow-hidden aspect-square">
+                        <img src="img/cat.jpg" alt="Ahmtstia" loading="lazy" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-gray-900 z-50 flex items-center justify-center">
+        <div class="loader animate-spin rounded-full h-16 w-16 border-4 border-cyan-400 border-t-transparent"></div>
+    </div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold mb-16 text-center">
+                Featured <span class="text-cyan-400">Projects</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div
+                    class="bg-white/50 dark:bg-gray-900/50 backdrop-blur-md rounded-xl p-6 card-hover border border-gray-200 dark:border-gray-800">
+                    <div class="relative overflow-hidden rounded-lg mb-4 h-48">
+                        <img src="img/imgnot.jpeg"
+                            class="w-full h-full object-cover hover:scale-110 transition-transform" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">E-Commerce App</h3>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                Flutter • Firebase • Node.js
+                            </p>
+                        </div>
+                        <span class="bg-cyan-400/10 text-cyan-400 px-3 py-1 rounded-full text-sm">2024</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Mobile Development</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Payment Gateway</span>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div
+                    class="bg-white/50 dark:bg-gray-900/50 backdrop-blur-md rounded-xl p-6 card-hover border border-gray-200 dark:border-gray-800">
+                    <div class="relative overflow-hidden rounded-lg mb-4 h-48">
+                        <img src="img/imgnot.jpeg"
+                            class="w-full h-full object-cover hover:scale-110 transition-transform" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Gallery Foto</h3>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                React • Tailwind • php
+                            </p>
+                        </div>
+                        <span class="bg-cyan-400/10 text-cyan-400 px-3 py-1 rounded-full text-sm">2024</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Web Development</span>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div
+                    class="bg-white/50 dark:bg-gray-900/50 backdrop-blur-md rounded-xl p-6 card-hover border border-gray-200 dark:border-gray-800">
+                    <div class="relative overflow-hidden rounded-lg mb-4 h-48">
+                        <img src="img/imgnot.jpeg"
+                            class="w-full h-full object-cover hover:scale-110 transition-transform" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">E-Learning</h3>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                Laravel • Mysql • Tailwind
+                            </p>
+                        </div>
+                        <span class="bg-cyan-400/10 text-cyan-400 px-3 py-1 rounded-full text-sm">2024</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Web Development</span>
+                    </div>
+                </div>
+
+                <!-- Add 5 more project cards with similar structure -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center">
+                Technical <span class="text-purple-500">Expertise</span>
+            </h2>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <!-- React -->
+                <div
+                    class="group relative p-px rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 hover:shadow-lg hover:shadow-cyan-400/20 transition-all">
+                    <div class="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 text-center h-full">
+                        <div class="mb-4 relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 blur-2xl">
+                            </div>
+                            <img src="https://cdn.simpleicons.org/react/61DAFB" class="h-16 w-16 mx-auto object-contain"
+                                alt="React Native" />
+                        </div>
+                        <h3
+                            class="font-bold mb-2 bg-gradient-to-br from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                            React
+                        </h3>
+                        <div class="h-1 bg-gray-700 rounded-full mb-2">
+                            <div class="h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full w-4/5"></div>
+                        </div>
+                        <span class="text-sm bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                            Expert Level
+                        </span>
+                    </div>
+                </div>
+
+                <!-- PHP -->
+                <div
+                    class="group relative p-px rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 hover:shadow-lg hover:shadow-cyan-400/20 transition-all">
+                    <div class="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 text-center h-full">
+                        <div class="mb-4 relative">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-indigo-500/20 blur-2xl">
+                            </div>
+                            <img src="https://cdn.simpleicons.org/php/777BB4" class="h-16 w-16 mx-auto object-contain"
+                                alt="PHP" />
+                        </div>
+                        <h3
+                            class="font-bold mb-2 bg-gradient-to-br from-purple-400 to-indigo-400 bg-clip-text text-transparent">
+                            PHP
+                        </h3>
+                        <div class="h-1 bg-gray-700 rounded-full mb-2">
+                            <div class="h-1 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full w-3/4"></div>
+                        </div>
+                        <span
+                            class="text-sm bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
+                            Advanced
+                        </span>
+                    </div>
+                </div>
+
+                <!-- JavaScript -->
+                <div
+                    class="group relative p-px rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 hover:shadow-lg hover:shadow-cyan-400/20 transition-all">
+                    <div class="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 text-center h-full">
+                        <div class="mb-4 relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-amber-500/20 blur-2xl">
+                            </div>
+                            <img src="https://cdn.simpleicons.org/javascript/F7DF1E"
+                                class="h-16 w-16 mx-auto object-contain" alt="JavaScript" />
+                        </div>
+                        <h3
+                            class="font-bold mb-2 bg-gradient-to-br from-yellow-300 to-amber-400 bg-clip-text text-transparent">
+                            JavaScript
+                        </h3>
+                        <div class="h-1 bg-gray-700 rounded-full mb-2">
+                            <div class="h-1 bg-gradient-to-r from-yellow-300 to-amber-400 rounded-full w-4/5"></div>
+                        </div>
+                        <span
+                            class="text-sm bg-gradient-to-r from-yellow-300 to-amber-400 bg-clip-text text-transparent">
+                            Expert Level
+                        </span>
+                    </div>
+                </div>
+                <div
+                    class="group relative p-px rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 hover:shadow-lg hover:shadow-cyan-400/20 transition-all">
+                    <div class="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 text-center h-full">
+                        <div class="mb-4 relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 blur-2xl">
+                            </div>
+                            <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4"
+                                class="h-16 w-16 mx-auto object-contain" alt="Tailwind CSS" />
+                        </div>
+                        <h3
+                            class="font-bold mb-2 bg-gradient-to-br from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                            Tailwind CSS
+                        </h3>
+                        <div class="h-1 bg-gray-700 rounded-full mb-2">
+                            <div class="h-1 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full w-4/5"></div>
+                        </div>
+                        <span class="text-sm bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                            Expert Level
+                        </span>
+                    </div>
+                </div>
+                <!-- Node.js -->
+                <div <div
+                    class="group relative p-px rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 hover:shadow-lg hover:shadow-cyan-400/20 transition-all">
+                    <div class="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 text-center h-full">
+                        <div class="mb-4 relative">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-green-500/20 to-emerald-500/20 blur-2xl">
+                            </div>
+                            <img src="https://cdn.simpleicons.org/nodedotjs/339933"
+                                class="h-16 w-16 mx-auto object-contain" alt="Node.js" />
+                        </div>
+                        <h3
+                            class="font-bold mb-2 bg-gradient-to-br from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                            Node.js
+                        </h3>
+                        <div class="h-1 bg-gray-700 rounded-full mb-2">
+                            <div class="h-1 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full w-4/5"></div>
+                        </div>
+                        <span
+                            class="text-sm bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                            Advanced
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Bootstrap -->
+                <div
+                    class="group relative p-px rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 hover:shadow-lg hover:shadow-cyan-400/20 transition-all">
+                    <div class="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 text-center h-full">
+                        <div class="mb-4 relative">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-violet-500/20 blur-2xl">
+                            </div>
+                            <img src="https://cdn.simpleicons.org/bootstrap/7952B3"
+                                class="h-16 w-16 mx-auto object-contain" alt="Bootstrap" />
+                        </div>
+                        <h3
+                            class="font-bold mb-2 bg-gradient-to-br from-purple-400 to-violet-400 bg-clip-text text-transparent">
+                            Bootstrap
+                        </h3>
+                        <div class="h-1 bg-gray-700 rounded-full mb-2">
+                            <div class="h-1 bg-gradient-to-r from-purple-400 to-violet-400 rounded-full w-3/4"></div>
+                        </div>
+                        <span
+                            class="text-sm bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
+                            Expert
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Laravel -->
+                <div
+                    class="group relative p-px rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 hover:shadow-lg hover:shadow-cyan-400/20 transition-all">
+                    <div class="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 text-center h-full">
+                        <div class="mb-4 relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-red-600/20 to-rose-500/20 blur-2xl">
+                            </div>
+                            <img src="https://cdn.simpleicons.org/laravel/FF2D20"
+                                class="h-16 w-16 mx-auto object-contain" alt="Laravel" />
+                        </div>
+                        <h3
+                            class="font-bold mb-2 bg-gradient-to-br from-red-400 to-rose-400 bg-clip-text text-transparent">
+                            Laravel
+                        </h3>
+                        <div class="h-1 bg-gray-700 rounded-full mb-2">
+                            <div class="h-1 bg-gradient-to-r from-red-400 to-rose-400 rounded-full w-3/4"></div>
+                        </div>
+                        <span class="text-sm bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent">
+                            Advanced
+                        </span>
+                    </div>
+                </div>
+
+                <!-- MySQL -->
+                <div
+                    class="group relative p-px rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 hover:shadow-lg hover:shadow-cyan-400/20 transition-all">
+                    <div class="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 text-center h-full">
+                        <div class="mb-4 relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-sky-500/20 blur-2xl">
+                            </div>
+                            <img src="https://cdn.simpleicons.org/mysql/4479A1" class="h-16 w-16 mx-auto object-contain"
+                                alt="MySQL" />
+                        </div>
+                        <h3
+                            class="font-bold mb-2 bg-gradient-to-br from-blue-400 to-sky-400 bg-clip-text text-transparent">
+                            MySQL
+                        </h3>
+                        <div class="h-1 bg-gray-700 rounded-full mb-2">
+                            <div class="h-1 bg-gradient-to-r from-blue-400 to-sky-400 rounded-full w-4/5"></div>
+                        </div>
+                        <span class="text-sm bg-gradient-to-r from-blue-400 to-sky-400 bg-clip-text text-transparent">
+                            Expert
+                        </span>
+                    </div>
+                </div>
+                <!-- Add 11 more skill items with different icons and progress bars -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="pt-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center">
+                Work <span class="text-cyan-400">Experience</span>
+            </h2>
+
+            <div class="timeline relative max-w-2xl mx-auto">
+                <!-- Timeline item -->
+                <div class="timeline-item relative pl-8 pb-8 border-l-2 border-cyan-400/30">
+                    <div class="absolute w-4 h-4 bg-cyan-400 rounded-full -left-2 top-0"></div>
+                    <h3 class="text-xl font-bold">Freelance Web Developer</h3>
+                    <p class="text-gray-400 text-sm mb-2">2024- 2025</p>
+                    <ul class="list-disc pl-4 text-gray-400">
+                        <li>
+                            Developing an E-commerce website using Laravel with a modern
+                            design
+                        </li>
+                        <li>
+                            Developing interactive features using React.js and Tailwind CSS
+                        </li>
+                        <li>Build and manage responsive websites with modern designs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900/50 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="bg-white/50 dark:bg-gray-700 rounded-3xl p-12 grid lg:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <h2 class="text-4xl font-bold">
+                        Let's <span class="text-purple-500">Connect</span>
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Have a project in mind? Let's turn your idea into reality!
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="p-3 bg-gray-800 rounded-lg">
+                                <i class="bx bx-envelope text-2xl text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Email Me</h4>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    ahmatstay07@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="p-3 bg-gray-800 rounded-lg hover:bg-cyan-400/10 transition-colors">
+                                <i class="bx bxl-whatsapp text-2xl text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">WhatsApp</h4>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    +62 823 7166 3414
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4 relative z-10">
+                        <a href="https://github.com/Ahmatstia" target="_blank" rel="noopener noreferrer"
+                            class="p-3 bg-gray-800 rounded-lg hover:bg-gray-900 transition-colors">
+                            <i class="bx bxl-github text-2xl text-cyan-400"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ahmat-setiadi-877b04262/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="p-3 bg-gray-800 rounded-lg hover:bg-gray-900 transition-colors">
+                            <i class="bx bxl-linkedin text-2xl text-cyan-400"></i>
+                        </a>
+                        <a href="https://www.instagram.com/lexanova.official/" target="_blank" rel="noopener noreferrer"
+                            class="p-3 bg-gray-800 rounded-lg hover:bg-gray-900 transition-colors">
+                            <i class="bx bxl-instagram text-2xl text-cyan-400"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form action="https://formspree.io/f/xkgjnodw" method="POST" class="space-y-6 relative z-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <input type="text" name="name" placeholder="Your Name"
+                                class="w-full p-4 bg-gray-800 rounded-lg focus:ring-2 focus:ring-cyan-400" />
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Your Email" name="email"
+                                class="w-full p-4 bg-gray-800 rounded-lg focus:ring-2 focus:ring-cyan-400" />
+                        </div>
+                    </div>
+                    <div>
+                        <textarea rows="5" name="message" placeholder="Your Message" required
+                            class="w-full p-4 bg-gray-800 rounded-lg focus:ring-2 focus:ring-cyan-400"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-gradient-to-r from-cyan-500 to-purple-600 py-4 rounded-lg hover:scale-[1.02] transition-transform">
+                        Send Message <i class="bx bx-send ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

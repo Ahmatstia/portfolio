@@ -1,0 +1,163 @@
+/* Hover effects */
+button,
+a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input,
+textarea {
+  transition: all 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .tag {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .hero-image {
+    width: 100%;
+    margin: 2rem auto;
+  }
+
+  .floating {
+    animation: none;
+    padding-bottom: 0;
+    background-color: none;
+  }
+
+  .tech-badges {
+    justify-content: center;
+  }
+
+  .project-card {
+    margin: 0 auto;
+    max-width: 300px;
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out forwards;
+}
+
+/* Untuk delay animation tiap item */
+.animate-fade-in-up > * {
+  animation-delay: calc(0.1s * var(--i));
+}
+.gradient-bg {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.grid-pattern {
+  background-image: radial-gradient(
+      circle at 10% 20%,
+      rgba(8, 145, 178, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(124, 58, 237, 0.1) 0%,
+      transparent 50%
+    );
+}
+
+/* Tambahkan di CSS */
+.dark .dark\:bg-gradient-dark {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+}
+
+.light .light\:bg-gradient-light {
+  background: linear-gradient(
+    135deg,
+    rgb(45, 45, 45) 0%,
+    rgb(129, 129, 129) 50%,
+    rgb(202, 202, 202) 100%
+  );
+}
+
+/* Perbaiki card hover untuk light mode */
+.light .card-hover:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Text colors */
+.dark .dark\:text-gray-400 {
+  color: #94a3b8;
+}
+
+.light .light\:text-gray-600 {
+  color: #475569;
+}
+
+.card-hover {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.button-primary {
+  @apply bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-3 rounded-full 
+                hover:shadow-2xl hover:scale-105 transition-all duration-300 font-medium;
+}
+
+.button-secondary {
+  @apply border-2 border-cyan-500 text-cyan-600 dark:text-cyan-400 px-8 py-3 rounded-full
+                hover:bg-cyan-500/10 hover:border-cyan-600 transition-all duration-300 font-medium;
+}
+
+.project-card {
+  @apply transform hover:-translate-y-2 transition-all duration-500 hover:shadow-2xl;
+}
+
+.tech-tags span {
+  @apply px-3 py-1 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-sm rounded-full mr-2;
+}
+
+.project-link {
+  @apply flex items-center text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 
+                transition-all font-medium;
+}
