@@ -97,7 +97,7 @@ document.querySelectorAll(".card-hover").forEach((el) => {
 // DOWNLOAD CV
 document.getElementById("download-cv").addEventListener("click", function () {
   // Ganti URL berikut dengan lokasi file CV yang benar
-  const cvUrl = "/assets/cv/CV Ahmat Setiadi.pdf";
+  const cvUrl = "CV Ahmat Setiadi.pdf";
 
   // Buat elemen <a> secara dinamis
   const link = document.createElement("a");
