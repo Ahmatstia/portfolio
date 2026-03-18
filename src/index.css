@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap");
+
+/* ===== DESIGN TOKENS ===== */
+:root {
+  --indigo-50: #e8eaf6;
+  --indigo-100: #c5cae9;
+  --indigo-200: #9fa8da;
+  --indigo-300: #7986cb;
+  --indigo-400: #5c6bc0;
+  --indigo-500: #3f51b5;
+  --indigo-600: #3949ab;
+  --indigo-700: #303f9f;
+  --indigo-800: #283593;
+  --indigo-900: #1a237e;
+
+  --amber-400: #ffca28;
+  --amber-500: #ffb300;
+
+  --bg-primary: #0d0f1a;
+  --bg-secondary: #111827;
+  --bg-card: #1a1f35;
+  --bg-card-hover: #1e2540;
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --border-subtle: rgba(99, 102, 241, 0.15);
+  --border-hover: rgba(99, 102, 241, 0.4);
+}
+
+/* ===== BASE ===== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  body {
+    @apply text-white;
+    background-color: var(--bg-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--indigo-600);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--indigo-500);
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+@keyframes pulse-glow-indigo {
+  0%, 100% { box-shadow: 0 0 20px rgba(63, 81, 181, 0.4); }
+  50%       { box-shadow: 0 0 40px rgba(63, 81, 181, 0.7); }
+}
+
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ===== ANIMATION UTILITIES ===== */
+.animate-float      { animation: float 6s ease-in-out infinite; }
+.animate-slide-up   { animation: slide-up 0.6s ease-out forwards; }
+.animate-fade-in    { animation: fade-in 0.5s ease-out forwards; }
+.animate-scale-in   { animation: scale-in 0.4s ease-out forwards; }
+.animate-gradient   { background-size: 200% 200%; animation: gradient-shift 4s ease infinite; }
+.animate-pulse-glow { animation: pulse-glow-indigo 2.5s ease-in-out infinite; }
+.animate-blink      { animation: blink 1s step-end infinite; }
+
+/* ===== GLASS CARD ===== */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.glass-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 8px 32px rgba(63, 81, 181, 0.15);
+  transform: translateY(-4px);
+}
+
+/* ===== INDIGO BUTTON ===== */
+.btn-indigo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: var(--indigo-500);
+  color: #fff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+.btn-indigo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+.btn-indigo:hover {
+  background: var(--indigo-600);
+  box-shadow: 0 4px 20px rgba(63, 81, 181, 0.45);
+  transform: translateY(-2px);
+}
+.btn-indigo:hover::after {
+  transform: translateX(100%);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  border: 1.5px solid var(--border-hover);
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+.btn-outline:hover {
+  background: rgba(63, 81, 181, 0.1);
+  border-color: var(--indigo-400);
+  transform: translateY(-2px);
+}
+
+/* ===== SECTION LABEL BADGE ===== */
+.section-badge {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  background: rgba(63, 81, 181, 0.12);
+  color: var(--indigo-300);
+  border: 1px solid rgba(63, 81, 181, 0.25);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ===== VIDEO WRAPPER (16:9 responsive) ===== */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: #0d0f1a;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ===== TECH BADGE ===== */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.75rem;
+  background: rgba(63, 81, 181, 0.08);
+  color: var(--indigo-200);
+  border: 1px solid rgba(63, 81, 181, 0.2);
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.tech-badge:hover {
+  background: rgba(63, 81, 181, 0.18);
+  border-color: rgba(63, 81, 181, 0.4);
+}
+
+/* ===== SECTION SPACING ===== */
+.section-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding: 6rem 2rem;
+  }
+}
