@@ -1,7 +1,7 @@
 // Hero.tsx
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import logo from "../assets/images/logo.jpeg";
-import { motion } from "framer-motion";
+import { motion, useInView, animate } from "framer-motion";
 import { Briefcase, ChevronDown, CheckCircle, Users, Star } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -10,6 +10,60 @@ const TYPING_TEXTS = [
   "Menerjemahkan Ide ke Produk Digital.",
   "Solusi SaaS & Mobile Tanpa Ribet.",
 ];
+
+// Static particles generation outside to keep the component pure
+const HERO_PARTICLES = [...Array(6)].map(() => ({
+  top: `${Math.random() * 100}%`,
+  left: `${Math.random() * 100}%`,
+  delay: `${Math.random() * 5}s`,
+  blur: `${Math.random() * 2}px`
+}));
+
+// --- ANIMATED COUNTER COMPONENT ---
+function Counter({ value, suffix = "" }: { value: string, suffix?: string }) {
+  const nodeRef = useRef<HTMLSpanElement>(null);
+  const numericValue = parseInt(value.replace(/[^0-9]/g, "")) || 0;
+  const inView = useInView(nodeRef, { once: true });
+
+  useEffect(() => {
+    if (inView && nodeRef.current) {
+      const node = nodeRef.current;
+      const controls = animate(0, numericValue, {
+        duration: 2,
+        onUpdate(value) {
+          node.textContent = Math.round(value).toString() + suffix;
+        },
+      });
+      return () => controls.stop();
+    }
+  }, [inView, numericValue, suffix]);
+
+  return <span ref={nodeRef}>0{suffix}</span>;
+}
+
+// --- STAT ITEM ---
+function StatItem({ icon, value, label, delay }: { icon: React.ReactNode, value: string, label: string, delay: number }) {
+  const suffix = value.replace(/[0-9]/g, "");
+  
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay }}
+      className="flex flex-col items-center sm:items-start gap-1"
+    >
+      <div className="flex items-center gap-2.5">
+        <div className="text-indigo-400/80">{icon}</div>
+        <span className="font-heading font-bold text-2xl text-white tracking-tight">
+          <Counter value={value} suffix={suffix} />
+        </span>
+      </div>
+      <div className="text-slate-500 text-[10px] uppercase tracking-[0.2em] font-semibold ml-0.5">
+        {label}
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Hero() {
   const [lineIndex, setLineIndex] = useState(0);
@@ -53,34 +107,51 @@ export default function Hero() {
   }, [phase, charIndex, lineIndex]);
 
   const stats = [
-    { icon: <Briefcase className="w-5 h-5" />, value: "10+", label: "Projects Selesai" },
-    { icon: <Users className="w-5 h-5"    />, value: "100%", label: "Client Satisfaction" },
-    { icon: <Star className="w-5 h-5"     />, value: "3+", label: "Tahun Pengalaman" },
-    { icon: <CheckCircle className="w-5 h-5" />, value: "24h", label: "Response Time" },
+    { icon: <Briefcase className="w-4 h-4" />, value: "10+", label: "Projects Selesai" },
+    { icon: <Users className="w-4 h-4"    />, value: "100%", label: "Satisfaction" },
+    { icon: <Star className="w-4 h-4"     />, value: "3+", label: "Thn Pengalaman" },
+    { icon: <CheckCircle className="w-4 h-4" />, value: "24h", label: "Response" },
   ];
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-5 relative overflow-hidden pt-20">
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_0%,rgba(63,81,181,0.18)_0%,transparent_65%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_10%_80%,rgba(63,81,181,0.08)_0%,transparent_55%)] pointer-events-none" />
+      {/* --- PREMIUM BACKGROUND --- */}
+      <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none overflow-hidden z-0">
+        <div className="flex flex-col md:flex-row font-black leading-none text-white/[0.025] uppercase tracking-tighter text-[15vh] md:text-[25vw]" 
+             style={{ WebkitTextStroke: "1px rgba(255,255,255,0.03)" }}>
+          {"LEXANOVA".split("").map((char, i) => (
+            <span key={i}>{char}</span>
+          ))}
+        </div>
+      </div>
 
-      {/* Grid pattern */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-indigo-600/20 blur-[120px] animate-aurora mix-blend-screen" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-400/10 blur-[100px] animate-aurora" style={{ animationDelay: '-5s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] rounded-full bg-indigo-500/15 blur-[140px] animate-pulse" />
+      </div>
+
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {HERO_PARTICLES.map((p, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-indigo-400/50 rounded-full animate-float-particle"
+            style={{ top: p.top, left: p.left, animationDelay: p.delay, filter: `blur(${p.blur})` }}
+          />
+        ))}
+      </div>
+
       <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        className="absolute inset-0 opacity-[0.03] pointer-events-none z-0"
         style={{
-          backgroundImage: `linear-gradient(rgba(99,102,241,1) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(99,102,241,1) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
+          backgroundImage: `linear-gradient(rgba(139,92,246,0.3) 1.5px, transparent 1.5px),
+                            linear-gradient(90deg, rgba(139,92,246,0.3) 1.5px, transparent 1.5px)`,
+          backgroundSize: "80px 80px",
         }}
       />
 
-      {/* Floating orbs */}
-      <div className="absolute top-1/3 right-0 w-[380px] h-[380px] rounded-full bg-indigo-500/5 blur-3xl animate-pulse pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-indigo-700/5 blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: "1.5s" }} />
-
-      <div className="max-w-3xl w-full text-center relative z-10">
-        {/* Status Badge */}
+      {/* --- CONTENT AREA --- */}
+      <div className="max-w-5xl w-full text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -91,14 +162,13 @@ export default function Hero() {
           <span>Freelance Developer — Open for Projects</span>
         </motion.div>
 
-        {/* Main Headline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mb-6"
+          className="mb-8"
         >
-          <h1 className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl leading-tight text-white mb-2">
+          <h1 className="font-heading font-extrabold text-4xl sm:text-7xl md:text-8xl leading-tight text-white mb-2">
             <span className="bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-200 bg-clip-text text-transparent">
               {displayed}
             </span>
@@ -106,14 +176,13 @@ export default function Hero() {
           </h1>
         </motion.div>
 
-        {/* Sub-headline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-slate-400 text-base sm:text-lg leading-relaxed mb-10 max-w-xl mx-auto flex items-center justify-center gap-3"
+          className="text-slate-400 text-base sm:text-xl leading-relaxed mb-14 max-w-3xl mx-auto flex items-center justify-center gap-3"
         >
-          <img src={logo} alt="Lexanova" className="w-8 h-8 rounded-full border border-indigo-500/20" />
+          <img src={logo} alt="Lexanova" className="w-9 h-9 rounded-full border border-indigo-500/20" />
           <span>
             Saya <span className="text-white font-medium">Ahmatstia</span>, spesialis{" "}
             <span className="text-indigo-300 font-semibold">Laravel · Next.js · Flutter · React Native</span>
@@ -121,63 +190,41 @@ export default function Hero() {
           </span>
         </motion.p>
 
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.45 }}
-          className="flex flex-col sm:flex-row gap-3 justify-center mb-16"
-        >
-          <button
-            onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-            className="btn-indigo w-full sm:w-auto"
-            id="hero-cta-projects"
+        <div className="flex flex-col items-center gap-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="flex flex-col sm:flex-row gap-5 justify-center"
           >
-            <ChevronDown className="w-5 h-5" />
-            Lihat Project Saya
-          </button>
-          <a
-            href="https://wa.me/6282371663414?text=Halo%20Tedi%2C%20saya%20tertarik%20dengan%20jasa%20development%20kamu"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-outline w-full sm:w-auto"
-            id="hero-cta-wa"
-          >
-            <FaWhatsapp className="w-5 h-5 text-green-400" />
-            Chat via WhatsApp
-          </a>
-        </motion.div>
-
-        {/* Stats Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-3"
-        >
-          {stats.map((stat, i) => (
-            <div
-              key={i}
-              className="glass-card rounded-2xl p-4 flex flex-col items-center gap-1 text-center"
+            <button
+              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+              className="btn-indigo px-10 py-4 text-lg"
+              id="hero-cta-projects"
             >
-              <div className="text-indigo-400 mb-1">{stat.icon}</div>
-              <div className="font-heading font-bold text-2xl text-white">{stat.value}</div>
-              <div className="text-slate-500 text-xs leading-tight">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
-      </div>
+              <ChevronDown className="w-5 h-5" />
+              Lihat Project Saya
+            </button>
+            <a
+              href="https://wa.me/6282371663414?text=Halo%20Ahmat%2C%20saya%20tertarik%20dengan%20jasa%20development%20kamu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline px-10 py-4 text-lg"
+              id="hero-cta-wa"
+            >
+              <FaWhatsapp className="w-5 h-5 text-green-400" />
+              Chat via WhatsApp
+            </a>
+          </motion.div>
 
-      {/* Scroll hint */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-slate-500 text-xs"
-      >
-        <span>Scroll</span>
-        <ChevronDown className="w-4 h-4 animate-bounce" />
-      </motion.div>
+          {/* Minimal Stats Row */}
+          <div className="flex flex-wrap justify-center gap-x-16 gap-y-8 border-t border-white/5 pt-10 w-full max-w-4xl">
+            {stats.map((stat, i) => (
+              <StatItem key={i} {...stat} delay={0.6 + i * 0.1} />
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

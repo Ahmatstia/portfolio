@@ -57,7 +57,7 @@ export default function About() {
         </motion.div>
 
         {/* Values Cards */}
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-3 gap-4 mb-20">
           {values.map((v, i) => (
             <motion.div
               key={i}
@@ -74,6 +74,50 @@ export default function About() {
             </motion.div>
           ))}
         </div>
+
+        {/* --- TECH ARSENAL --- */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="border-t border-white/5 pt-16"
+        >
+          <div className="flex flex-col md:flex-row gap-12 items-start">
+            <div className="w-full md:w-1/3">
+              <h3 className="font-heading font-bold text-2xl text-white mb-4 italic">Tech Arsenal</h3>
+              <p className="text-slate-500 text-sm leading-relaxed">
+                Tech stack yang saya pilih bukan cuma karena tren, tapi karena keunggulannya dalam performa, scalability, dan kecepatan development.
+              </p>
+            </div>
+            
+            <div className="w-full md:w-2/3 grid grid-cols-2 sm:grid-cols-3 gap-8">
+              <div>
+                <h4 className="text-indigo-300 text-[10px] uppercase tracking-widest font-bold mb-4">Web Core</h4>
+                <ul className="space-y-2 text-slate-300 text-sm">
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-indigo-500 rounded-full" /> Next.js (React)</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-indigo-500 rounded-full" /> Laravel (PHP)</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-indigo-500 rounded-full" /> Tailwind CSS</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-indigo-300 text-[10px] uppercase tracking-widest font-bold mb-4">Mobile Hub</h4>
+                <ul className="space-y-2 text-slate-300 text-sm">
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-indigo-500 rounded-full" /> Flutter</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-indigo-500 rounded-full" /> React Native</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-indigo-500 rounded-full" /> Firebase</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-indigo-300 text-[10px] uppercase tracking-widest font-bold mb-4">Infrastructure</h4>
+                <ul className="space-y-2 text-slate-300 text-sm">
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-indigo-500 rounded-full" /> MySQL / PostgreSQL</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-indigo-500 rounded-full" /> REST API / GraphQL</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-indigo-500 rounded-full" /> Vercel / VPS</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

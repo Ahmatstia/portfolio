@@ -96,6 +96,31 @@ export default function Services() {
           ))}
         </div>
 
+        {/* --- WORK PROCESS --- */}
+        <div className="mb-24 border-t border-white/5 pt-16">
+          <div className="text-center mb-12">
+            <h3 className="font-heading font-bold text-2xl md:text-3xl text-white italic">The Lexanova Method</h3>
+            <p className="text-slate-500 text-sm mt-2">Bagaimana saya membawa ide Anda dari konsep hingga produk nyata.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-2">
+            {[
+              { step: "01", title: "Discovery", desc: "Kita diskusi mendalam tentang goal bisnis dan problem yang ingin kamu selesaikan." },
+              { step: "02", title: "Blueprint", desc: "Saya buatkan arsitektur teknis dan estimasi waktu yang transparan dan jujur." },
+              { step: "03", title: "Build", desc: "Proses development dengan update progress rutin & feedback loop yang cepat." },
+              { step: "04", title: "Launch", desc: "Deployment ke production, optimasi SEO, dan support teknis pasca-rilis." },
+            ].map((p, i) => (
+              <div key={i} className="relative p-6 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-white/[0.04] transition-colors">
+                <span className="text-4xl font-black text-white/[0.03] absolute top-4 right-6 group-hover:text-indigo-500/10 transition-colors">
+                  {p.step}
+                </span>
+                <h4 className="font-heading font-bold text-white mb-2 text-lg">{p.title}</h4>
+                <p className="text-slate-400 text-xs leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* CTA Banner */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

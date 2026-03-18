@@ -64,6 +64,22 @@
     @apply tracking-tight;
     font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   }
+
+  ::selection {
+    background-color: var(--indigo-500);
+    color: white;
+  }
+}
+
+/* ===== SCROLL PROGRESS ===== */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--indigo-500), var(--indigo-300));
+  z-index: 1000;
+  transform-origin: 0%;
+  transform: scaleX(0);
 }
 
 /* ===== SCROLLBAR ===== */
@@ -122,6 +138,18 @@
   to   { opacity: 1; transform: scale(1); }
 }
 
+@keyframes aurora {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(8%, 12%) scale(1.1); }
+  66% { transform: translate(-4%, 6%) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+  50% { transform: translateY(-20px) translateX(10px); opacity: 0.6; }
+}
+
 /* ===== ANIMATION UTILITIES ===== */
 .animate-float      { animation: float 6s ease-in-out infinite; }
 .animate-slide-up   { animation: slide-up 0.6s ease-out forwards; }
@@ -130,6 +158,8 @@
 .animate-gradient   { background-size: 200% 200%; animation: gradient-shift 4s ease infinite; }
 .animate-pulse-glow { animation: pulse-glow-indigo 2.5s ease-in-out infinite; }
 .animate-blink      { animation: blink 1s step-end infinite; }
+.animate-aurora     { animation: aurora 18s ease infinite alternate; }
+.animate-float-particle { animation: float-particle 10s ease-in-out infinite; }
 
 /* ===== GLASS CARD ===== */
 .glass-card {
