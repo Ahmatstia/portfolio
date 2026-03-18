@@ -98,9 +98,8 @@ export default function Contact() {
             <div className="ml-auto text-slate-600 group-hover:text-green-400 transition-colors">→</div>
           </a>
 
-          {/* Email — Secondary */}
           <a
-            href="mailto:ahmatstia@email.com?subject=Project%20Collaboration&body=Halo%20Ahmat%2C%20saya%20ingin%20mendiskusikan%20project%20bersama%20Lexanova."
+            href="mailto:ahmatstay07@gmail.com?subject=Project%20Collaboration&body=Halo%20Ahmat%2C%20saya%20ingin%20mendiskusikan%20project%20bersama%20Lexanova."
             id="contact-email"
             className="group flex items-center gap-4 p-5 rounded-2xl glass-card text-left"
           >
@@ -109,7 +108,7 @@ export default function Contact() {
             </div>
             <div>
               <div className="font-heading font-semibold text-white text-base">Kirim Email</div>
-              <div className="text-slate-400 text-sm">ahmatstia@email.com</div>
+              <div className="text-slate-400 text-sm">ahmatstay07@gmail.com</div>
             </div>
             <div className="ml-auto text-slate-600 group-hover:text-indigo-400 transition-colors">→</div>
           </a>
