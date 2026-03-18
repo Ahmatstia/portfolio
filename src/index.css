@@ -41,13 +41,27 @@
   }
 
   body {
-    @apply text-white;
+    @apply text-white antialiased;
     background-color: var(--bg-primary);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+  }
+
+  /* Grain Texture for that premium feel */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.04;
+    z-index: 100;
+    pointer-events: none;
+    filter: brightness(100%) contrast(100%);
   }
 
   h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
     font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   }
 }

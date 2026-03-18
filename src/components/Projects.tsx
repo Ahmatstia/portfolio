@@ -7,7 +7,8 @@ interface Project {
   category: string;
   title: string;
   tagline: string;
-  problem: string;
+  goal: string;
+  outcome: string;
   features: string[];
   techs: string[];
   youtubeId?: string;
@@ -19,17 +20,16 @@ interface Project {
 const projects: Project[] = [
   {
     category: "SaaS",
-    title: "POS System — Kasir Digital",
-    tagline: "Sistem kasir modern untuk usaha ritel & F&B",
-    problem:
-      "Kasir manual lambat, stok sering tidak tercatat, dan laporan harian memakan waktu berjam-jam.",
+    title: "POS System — Retail Optimization",
+    tagline: "Sistem kasir modern untuk efisiensi operasional",
+    goal: "Mendigitalisasi UMKM yang masih menggunakan pencatatan manual yang rawan kesalahan.",
+    outcome: "Mempercepat proses checkout hingga 40% dan akurasi stok mencapai 99.9%.",
     features: [
       "Transaksi real-time dengan stock auto-update",
       "Multi-role (Admin, Kasir, Manajer)",
       "Laporan harian & ekspor PDF/Excel",
-      "Mode offline — tetap berjalan tanpa internet",
     ],
-    techs: ["Laravel", "React", "MySQL", "Inertia.js"],
+    techs: ["Laravel", "React", "MySQL"],
     youtubeId: "",
     githubUrl: "#",
     demoUrl: "#",
@@ -37,37 +37,35 @@ const projects: Project[] = [
   },
   {
     category: "E-Commerce",
-    title: "Flower Shop E-Commerce",
-    tagline: "Toko online bunga dengan manajemen inventaris terintegrasi",
-    problem:
-      "Pemilik toko kesulitan mengelola order online, stok, dan pengiriman dari berbagai platform sekaligus.",
+    title: "Flower Shop — Scaling Online",
+    tagline: "Omni-channel sales untuk toko bunga lokal",
+    goal: "Membangun sistem yang bisa menangani lonjakan order saat hari besar (Mother's Day, Valentine).",
+    outcome: "Order harian meningkat 3x lipat tanpa perlu admin tambahan.",
     features: [
       "Admin dashboard manajemen produk & order",
       "Payment gateway (Midtrans)",
-      "Order tracking real-time untuk pelanggan",
       "Notifikasi WhatsApp otomatis",
     ],
-    techs: ["Laravel", "React", "MySQL", "Tailwind", "Midtrans"],
+    techs: ["Laravel", "React", "Midtrans"],
     youtubeId: "",
-    githubUrl: "https://github.com/yourusername/flower-shop",
-    demoUrl: "https://demo-flower-shop.vercel.app",
+    githubUrl: "#",
+    demoUrl: "#",
     status: "completed",
   },
   {
     category: "Mobile App",
-    title: "Finance Tracker App",
-    tagline: "Aplikasi keuangan personal yang intuitif & insightful",
-    problem:
-      "Banyak orang tidak tahu ke mana uang mereka pergi setiap bulan karena tidak ada pencatatan yang mudah.",
+    title: "Finance Tracker",
+    tagline: "Personal finance management with AI insights",
+    goal: "Membantu pengguna memahami kebiasaan belanja mereka melalui visualisasi data yang intuitif.",
+    outcome: "Membantu pengguna menghemat rata-rata 15% pengeluaran bulanan melalui budget alerts.",
     features: [
-      "Kategorisasi pemasukan & pengeluaran",
-      "Budget planner bulanan",
-      "Grafik & laporan visual",
-      "Backup & sinkronisasi cloud",
+      "Kategorisasi pemasukan & pengeluaran otomatis",
+      "Budget planner dengan sistem peringatan",
+      "Grafik & laporan visual performa keuangan",
     ],
-    techs: ["React Native", "Expo", "Firebase", "Redux"],
+    techs: ["React Native", "Firebase", "Redux"],
     youtubeId: "",
-    githubUrl: "https://github.com/yourusername/finance-tracker",
+    githubUrl: "#",
     demoUrl: "#",
     status: "completed",
   },
@@ -75,15 +73,14 @@ const projects: Project[] = [
     category: "SaaS",
     title: "Task Management Platform",
     tagline: "Kolaborasi tim yang lebih efektif dan terstruktur",
-    problem:
-      "Tim kesulitan tracking progress pekerjaan, sering terjadi miscommunication dan deadline terlewat.",
+    goal: "Menghilangkan 'silo' informasi dalam tim dengan sentralisasi komunikasi tugas.",
+    outcome: "Mengurangi miskomunikasi tim hingga 50% dan meningkatkan delivery project 20% lebih cepat.",
     features: [
       "Real-time collaboration dengan Socket.io",
       "Assign task, due date, dan prioritas",
-      "File attachment & komentar per task",
       "Progress tracking & dashboard tim",
     ],
-    techs: ["Next.js", "Node.js", "Socket.io", "MongoDB"],
+    techs: ["Next.js", "Node.js", "Socket.io"],
     youtubeId: "",
     githubUrl: "#",
     demoUrl: "#",
@@ -155,12 +152,20 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </span>
         </div>
 
-        {/* Problem */}
-        <div className="bg-indigo-500/5 border border-indigo-500/15 rounded-xl p-4 mb-4">
-          <p className="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-1.5">
-            💡 Masalah yang Diselesaikan
-          </p>
-          <p className="text-slate-400 text-sm leading-relaxed">{project.problem}</p>
+        {/* Purpose & Impact (De-AI move) */}
+        <div className="grid grid-cols-2 gap-3 mb-4">
+          <div className="bg-indigo-500/5 border border-indigo-500/15 rounded-xl p-3">
+            <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-1">
+              The Goal
+            </p>
+            <p className="text-slate-400 text-xs leading-relaxed line-clamp-2">{project.goal}</p>
+          </div>
+          <div className="bg-green-500/5 border border-green-500/15 rounded-xl p-3">
+            <p className="text-[10px] font-bold text-green-400 uppercase tracking-widest mb-1">
+              The Outcome
+            </p>
+            <p className="text-slate-400 text-xs leading-relaxed line-clamp-2">{project.outcome}</p>
+          </div>
         </div>
 
         {/* Features */}
@@ -276,7 +281,7 @@ export default function Projects() {
           className="mt-12 text-center"
         >
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/Ahmatstia"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline inline-flex"

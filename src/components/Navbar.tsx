@@ -34,23 +34,33 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <a
-          href="#"
-          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-          className="flex items-center gap-3"
-        >
-          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-indigo-500/30 shadow-md shadow-indigo-500/20">
-            <img 
-              src={logo} 
-              alt="Lexanova Logo" 
-              className="w-full h-full object-cover"
-            />
+        {/* Left Side: Logo + Availability */}
+        <div className="flex items-center gap-6">
+          <a
+            href="#"
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            className="flex items-center gap-3 group"
+          >
+            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-indigo-500/30 shadow-md shadow-indigo-500/20 group-hover:border-indigo-400 transition-all">
+              <img 
+                src={logo} 
+                alt="Lexanova Logo" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <span className="font-heading font-800 text-xl text-white tracking-tight">
+              Lexanova
+            </span>
+          </a>
+
+          {/* Location / Status (De-AI move) */}
+          <div className="hidden lg:flex flex-col border-l border-white/10 pl-6">
+            <span className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Local Time</span>
+            <span className="text-xs text-slate-300 tabular-nums">
+              {new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })} WIB
+            </span>
           </div>
-          <span className="font-heading font-800 text-xl text-white tracking-tight">
-            Lexanova
-          </span>
-        </a>
+        </div>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-7">

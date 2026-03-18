@@ -9,18 +9,18 @@ export default function About() {
   const values = [
     {
       icon: <Target className="w-5 h-5" />,
-      title: "Berorientasi Hasil",
-      desc: "Setiap baris kode yang saya tulis punya tujuan: menyelesaikan masalah bisnis kamu secara nyata.",
+      title: "Business-First",
+      desc: "Teknologi cuma alat. Fokus saya adalah bagaimana aplikasi ini bisa menghasilkan ROI buat kamu.",
     },
     {
       icon: <Zap className="w-5 h-5" />,
-      title: "Cepat & Tepat",
-      desc: "Deadline adalah prioritas. Saya terbiasa bekerja dalam ritme cepat tanpa mengorbankan kualitas.",
+      title: "Built to Scale",
+      desc: "Saya memastikan aplikasi kamu cepat, scalable, dan tidak boros sumber daya server.",
     },
     {
       icon: <Heart className="w-5 h-5" />,
-      title: "Komunikasi Terbuka",
-      desc: "Saya update progress secara rutin dan selalu terbuka untuk diskusi agar hasilnya sesuai ekspektasi.",
+      title: "Proactive Communication",
+      desc: "Gak ada istilah 'ghosting'. Update progress rutin dan diskusi terbuka adalah standar kerja saya.",
     },
   ];
 
@@ -32,22 +32,28 @@ export default function About() {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <span className="section-badge mb-4 block w-fit mx-auto">About Me</span>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-white mb-4">
-            Developer yang{" "}
+          <span className="section-badge mb-4 block w-fit mx-auto uppercase tracking-widest font-bold text-[10px]">
+            The Person Behind Code
+          </span>
+          <h2 className="font-heading font-extrabold text-3xl md:text-5xl text-white mb-6">
+            Kenapa Kerja Sama{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-indigo-300 bg-clip-text text-transparent">
-              Berfokus pada Solusi
+              Dengan Saya?
             </span>
           </h2>
-          <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            Saya <span className="text-white font-medium">Ahmatstia</span>, founder di balik{" "}
-            <span className="text-indigo-300 font-bold">Lexanova</span>. Sebagai Mahasiswa Teknik Informatika,
-            saya berfokus pada pengembangan aplikasi web dan mobile dengan standar kualitas tinggi.
-            Misi saya adalah membangun sistem yang{" "}
-            <span className="text-white font-medium">benar-benar berguna</span> dan menghasilkan value nyata bagi bisnis kamu.
-          </p>
+          <div className="max-w-3xl mx-auto space-y-4">
+            <p className="text-slate-400 text-base md:text-lg leading-relaxed">
+              Halo, saya <span className="text-white font-medium italic underline decoration-indigo-500">Ahmatstia</span>. 
+              Saya memulai perjalanan ini dari rasa penasaran bagaimana raksasa teknologi membangun sistem mereka. 
+              Hari ini, saya menggunakan pengalaman itu untuk membangun <span className="text-indigo-300 font-bold uppercase tracking-wider">Lexanova</span>.
+            </p>
+            <p className="text-slate-400 text-base md:text-lg leading-relaxed">
+              Banyak developer yang bisa coding, tapi sedikit yang mengerti **value bisnis**. 
+              Saya di sini untuk menjembatani itu — memastikan setiap baris kode yang saya tulis punya dampak langsung pada pertumbuhan bisnis Anda.
+            </p>
+          </div>
         </motion.div>
 
         {/* Values Cards */}

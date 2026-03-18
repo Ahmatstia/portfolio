@@ -3,7 +3,7 @@ import logo from "../assets/images/logo.jpeg";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { Mail, Clock, MapPin } from "lucide-react";
-import { FaWhatsapp, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaWhatsapp, FaGithub, FaLinkedin, FaTiktok, FaInstagram } from "react-icons/fa";
 
 export default function Contact() {
   const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: true });
@@ -12,14 +12,26 @@ export default function Contact() {
     {
       icon: <FaGithub className="w-5 h-5" />,
       label: "GitHub",
-      href: "https://github.com/yourusername",
+      href: "https://github.com/Ahmatstia",
       color: "hover:text-white",
     },
     {
       icon: <FaLinkedin className="w-5 h-5" />,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/yourusername",
+      href: "https://www.linkedin.com/in/ahmat-setiadi-877b04262/",
       color: "hover:text-blue-400",
+    },
+    {
+      icon: <FaInstagram className="w-5 h-5" />,
+      label: "Instagram",
+      href: "https://www.instagram.com/lexanova.official/",
+      color: "hover:text-pink-400",
+    },
+    {
+      icon: <FaTiktok className="w-5 h-5" />,
+      label: "TikTok",
+      href: "https://www.tiktok.com/@lexanova_",
+      color: "hover:text-cyan-400",
     },
   ];
 

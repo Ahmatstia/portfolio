@@ -7,39 +7,39 @@ import { FaWhatsapp } from "react-icons/fa";
 const services = [
   {
     icon: <Globe className="w-6 h-6" />,
-    title: "Website & Web App",
-    desc: "Landing page, company profile, web app, hingga platform SaaS. Dibangun dengan Next.js atau Laravel.",
-    tags: ["Next.js", "Laravel", "React"],
+    title: "Web Platforms",
+    desc: "Custom dashboard, SaaS, atau portal perusahaan dengan Next.js yang SEO-ready dan lightning fast.",
+    tags: ["Next.js", "React", "Tailwind"],
   },
   {
     icon: <Smartphone className="w-6 h-6" />,
-    title: "Aplikasi Mobile",
-    desc: "Aplikasi Android & iOS yang smooth dan intuitif menggunakan Flutter atau React Native.",
-    tags: ["Flutter", "React Native", "Expo"],
+    title: "Mobile Solutions",
+    desc: "Satu codebase untuk iOS & Android menggunakan Flutter atau React Native tanpa kompromi performa.",
+    tags: ["Flutter", "React Native", "Firebase"],
   },
   {
     icon: <LayoutDashboard className="w-6 h-6" />,
-    title: "Sistem Informasi & Dashboard",
-    desc: "Dashboard admin, sistem manajemen bisnis, laporan data real-time untuk keperluan internal.",
-    tags: ["Laravel", "Inertia.js", "Chart.js"],
+    title: "Backend Arsitektur",
+    desc: "Database solid dan API aman menggunakan Laravel untuk skala pengguna besar dan traffic tinggi.",
+    tags: ["Laravel", "PostgreSQL", "Redis"],
   },
   {
     icon: <Server className="w-6 h-6" />,
-    title: "REST API & Backend",
-    desc: "API backend yang terstruktur, aman, dan mudah diintegrasikan ke front-end atau aplikasi mobile.",
-    tags: ["Laravel", "Node.js", "MySQL"],
+    title: "Audit & Optimasi",
+    desc: "Analisis performa, audit keamanan, dan optimasi database untuk aplikasi yang lemot.",
+    tags: ["Audit", "MySQL", "Scalability"],
   },
   {
     icon: <Wrench className="w-6 h-6" />,
-    title: "Perbaikan Bug",
-    desc: "Ada bug yang bikin frustasi? Saya bantu diagnosa dan perbaiki secara cepat dan tuntas.",
-    tags: ["Debugging", "Audit", "Fix"],
+    title: "Deep Debugging",
+    desc: "Menyelesaikan bug kompleks yang menghambat bisnis Anda secara cepat dan tuntas.",
+    tags: ["Debugging", "Bug Fix", "Refactor"],
   },
   {
     icon: <RefreshCw className="w-6 h-6" />,
-    title: "Maintenance & Update",
-    desc: "Perawatan berkala, update fitur, dan optimasi performa aplikasi yang sudah berjalan.",
-    tags: ["Maintenance", "Optimization"],
+    title: "SLA & Maintenance",
+    desc: "Dukungan teknis berkala dan update fitur untuk memastikan aplikasi tetap berjalan optimal.",
+    tags: ["Support", "Update", "Security"],
   },
 ];
 
@@ -56,15 +56,17 @@ export default function Services() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <span className="section-badge mb-4 block w-fit mx-auto">Services</span>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-white mb-4">
+          <span className="section-badge mb-4 block w-fit mx-auto uppercase tracking-widest font-bold text-[10px]">
+            Expertise
+          </span>
+          <h2 className="font-heading font-extrabold text-3xl md:text-5xl text-white mb-4">
             Apa yang Bisa{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-indigo-300 bg-clip-text text-transparent">
               Saya Kerjakan
             </span>
           </h2>
           <p className="text-slate-400 text-base max-w-xl mx-auto">
-            Dari ideasi sampai deployment, saya siap bantu mewujudkan produk digital kamu.
+            Dari ideasi sampai deployment, saya siap bantu mewujudkan produk digital Anda.
           </p>
         </motion.div>
 
@@ -103,13 +105,13 @@ export default function Services() {
           style={{ borderColor: "rgba(63,81,181,0.25)" }}
         >
           <h3 className="font-heading font-bold text-white text-xl md:text-2xl mb-2">
-            Ada Project di Benak Kamu?
+            Ada Project di Benak Anda?
           </h3>
           <p className="text-slate-400 text-sm md:text-base mb-6 max-w-md mx-auto">
             Ceritakan kebutuhanmu dan kita diskusikan solusi terbaik bersama. Gratis konsultasi awal!
           </p>
           <a
-            href="https://wa.me/6282371663414?text=Halo%20Tedi%2C%20saya%20ingin%20diskusi%20project%20bersama%20kamu"
+            href="https://wa.me/6282371663414?text=Halo%20Ahmat%2C%20saya%20ingin%20diskusi%20project%20bersama%20Lexanova"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-indigo inline-flex"

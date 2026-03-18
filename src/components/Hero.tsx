@@ -6,9 +6,9 @@ import { Briefcase, ChevronDown, CheckCircle, Users, Star } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const TYPING_TEXTS = [
-  "Saya Membangun Aplikasi",
-  "yang Menyelesaikan Masalah",
-  "Bisnis Nyata.",
+  "Membangun Code yang Menghasilkan.",
+  "Menerjemahkan Ide ke Produk Digital.",
+  "Solusi SaaS & Mobile Tanpa Ribet.",
 ];
 
 export default function Hero() {
